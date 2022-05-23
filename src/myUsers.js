@@ -7,9 +7,10 @@ import {
     EditButton,
     Edit,
     SimpleForm,
+    Create,
+    TextInput,
     ReferenceInput,
     SelectInput,
-    TextInput,
     UrlField,
     ReferenceField,
     ReferenceManyField,
@@ -54,4 +55,16 @@ export const UserEdit = () => (
             <TextInput source='phone' />
         </SimpleForm>
     </Edit>
+);
+
+export const UserCreate = props => (
+    <Create {...props}>
+        <SimpleForm>
+            <TextInput source="name" />
+            <TextInput source="username" />
+            <TextInput label="Email Address" source="email" type="email" />
+            <TextInput source='address' />
+            <TextInput source='phone' />
+        </SimpleForm>
+    </Create>
 );

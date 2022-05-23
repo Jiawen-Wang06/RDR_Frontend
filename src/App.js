@@ -1,16 +1,16 @@
 import * as React from "react";
 import { Admin, Resource, ListGuesser, EditGuesser } from 'react-admin';
 import jsonServerProvider from 'ra-data-json-server';
-import { MyList, UserEdit } from './myUsers';
+import { MyList, UserCreate, UserEdit } from './myUsers';
 import { PostEdit, PostList } from "./myPosts";
 import myAuthProvider from "./myAuthProvider";
 
-const dataProvider = jsonServerProvider('http://localhost:8080'); //   https://jsonplaceholder.typicode.com 
+const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com'); // http://localhost:8080  
 
 const App = () => (
   <Admin dataProvider={dataProvider} authProvider={myAuthProvider}>
     {/* <Resource name="posts" list={PostList} edit={PostEdit} /> */}
-    <Resource name="users" list={MyList} edit={UserEdit} />
+    <Resource name="users" list={MyList} edit={UserEdit} create={UserCreate} />
   </Admin>);
 
 console.log("DataProvider", dataProvider);
