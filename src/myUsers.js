@@ -4,6 +4,12 @@ import {
     Datagrid,
     TextField,
     EmailField,
+    EditButton,
+    Edit,
+    SimpleForm,
+    ReferenceInput,
+    SelectInput,
+    TextInput,
     UrlField,
     ReferenceField,
     ReferenceManyField,
@@ -29,7 +35,23 @@ export const MyList = () => {
                 <EmailField source="email" />
                 <TextField source="address" />
                 <TextField source="phone" />
+                <EditButton />
             </Datagrid>
         </List>
     );
 }
+
+export const UserEdit = () => (
+    <Edit>
+        <SimpleForm>
+            <TextInput disabled source="id" />
+
+
+            <TextInput source="name" />
+            <TextInput source="username" />
+            <TextInput label="Email Address" source="email" type="email" />
+            <TextInput source='address' />
+            <TextInput source='phone' />
+        </SimpleForm>
+    </Edit>
+);
