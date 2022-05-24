@@ -5,7 +5,7 @@ import { MyList, UserCreate, UserEdit } from './myUsers';
 import { PostEdit, PostList } from "./myPosts";
 import myAuthProvider from "./myAuthProvider";
 
-const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com'); // http://localhost:8080  
+const dataProvider = jsonServerProvider('http://localhost:8080'); //   https://jsonplaceholder.typicode.com 
 
 const App = () => (
   <Admin dataProvider={dataProvider} authProvider={myAuthProvider}>
