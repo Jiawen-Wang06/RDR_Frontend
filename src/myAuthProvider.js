@@ -1,12 +1,11 @@
-import axios from 'axios';
 export default {
 
     // called when the user attempts to log in
-    login: ({ username, password }) => {
+    login: ({username, password}) => {
         const request = new Request('http://localhost:8080/auth', {
             method: 'POST',
-            body: JSON.stringify({ username, password }),
-            headers: new Headers({ 'Content-Type': 'application/json' }),
+            body: JSON.stringify({username, password}),
+            headers: new Headers({'Content-Type': 'application/json'}),
         });
         return fetch(request)
             .then(response => {
@@ -20,12 +19,12 @@ export default {
             .then(auth => {
                 //localStorage.setItem('auth', JSON.stringify(auth));
                 console.log(auth);
-                if(auth.status == 10000){
-                    localStorage.setItem('username',auth.data.username);
-                }else{
+                if (auth.status == 10000) {
+                    localStorage.setItem('username', auth.data.username);
+                } else {
                     throw new Error(auth.msg);
                 }
-                
+
             })
             .catch((msg) => {
                 throw new Error(msg)
@@ -37,7 +36,7 @@ export default {
         return Promise.resolve();
     },
     // called when the API returns an error
-    checkError: ({ status }) => {
+    checkError: ({status}) => {
         if (status === 401 || status === 403) {
             localStorage.removeItem('username');
             return Promise.reject();

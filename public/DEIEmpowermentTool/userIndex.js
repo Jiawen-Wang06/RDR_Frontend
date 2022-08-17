@@ -1,7 +1,7 @@
 ﻿import React from 'react';
 
 export const UserIndex = () => {
-    return(
+    return (
         <div>I'm user index</div>
     );
 }
